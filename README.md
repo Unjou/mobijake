@@ -80,10 +80,41 @@ This is built mainly for the **Kirikiri/Kirikiri2 Engine**, but it's flexible en
     pip install -r requirements.txt
     ```
 
-3.  **Run the App:**
+## ▶️ How to Run the Tool
+
+You have two options: run the script directly if you have Python, or build a standalone `.exe` file.
+
+### Option A: Run the `.pyw` Script Directly
+
+This is the quickest way if you already have Python and the dependencies installed.
+
+1.  Make sure you've done the installation steps above.
+2.  Open your terminal or command prompt in the project folder.
+3.  Run this command:
     ```bash
     python JPLeftoverHunter.pyw
     ```
+
+### Option B: Build a Standalone `.exe` with PyInstaller
+
+This creates a single `.exe` file that you can share and run on any Windows machine, even without Python installed.
+
+1.  **Install PyInstaller:**
+    ```bash
+    pip install pyinstaller
+    ```
+
+2.  **Build the Executable:**
+    Run this command in your terminal from the project folder:
+    ```bash
+    pyinstaller --onefile --windowed --name="JP Leftover Hunter" JPLeftoverHunter.pyw
+    ```
+    *   `--onefile`: Packs everything into a single `.exe` file.
+    *   `--windowed`: Runs the app without a black console window in the background.
+    *   `--name="..."`: Sets the name of the final `.exe` file.
+
+3.  **Find Your App:**
+    After the process finishes, you'll find your `.exe` inside a new folder called `dist`.
 
 ## 📖 How to Use It
 
@@ -91,7 +122,7 @@ This is built mainly for the **Kirikiri/Kirikiri2 Engine**, but it's flexible en
     -   **JP Folder:** The original Japanese scripts.
     -   **MTL Folder:** The machine-translated scripts.
 
-2.  **Open the App:** Run `JPLeftoverHunter.pyw`.
+2.  **Open the App:** Run `JPLeftoverHunter.pyw` or the `.exe` you built.
 
 3.  **Set It Up:**
     -   Click the 📁 button to select your **JP Folder**.
@@ -105,6 +136,34 @@ This is built mainly for the **Kirikiri/Kirikiri2 Engine**, but it's flexible en
     -   Use the **Filter** dropdown to look at just one type of error.
     -   Hover over any cell to see more details.
 
+6.  **Export:** Click the 💾 button to save everything to a `.csv` file.
+
+## ⚙️ How It Works (The Gist)
+
+1.  **Reads Files:** It reads all your scripts and pulls out only the dialogue, ignoring the engine's code.
+2.  **Matches Lines:** It uses its smart matching logic to pair each Japanese line with its translated version.
+3.  **Analyzes:** It checks each pair for all the common problems listed above, and it does this for many files at once.
+4.  **Gets Suggestions:** If it finds a problem, it asks DeepL/Google for a better translation and saves the result.
+5.  **Reports:** It shows you everything in a nice, clean table.
+
+## 🤝 Want to Help?
+
+Found a bug? Got a cool idea for a new feature? Pull requests and issues are welcome!
+
+1.  Fork the project.
+2.  Make a new branch for your feature (`git checkout -b feature/SomeCoolFeature`).
+3.  Commit your changes (`git commit -m 'Add a cool feature'`).
+4.  Push to your branch (`git push origin feature/SomeCoolFeature`).
+5.  Open a Pull Request.
+
+## 📄 License
+
+This project is under the MIT License - check out the [LICENSE](LICENSE) file for the full text.
+
+## 🙏 Thanks & Credits
+
+-   Big thanks to the creators of the awesome libraries we use: **PyQt5**, **chardet**, and **deep-translator**.
+-   Made with ❤️ for the visual novel translation community.
 6.  **Export:** Click the 💾 button to save everything to a `.csv` file.
 
 ## ⚙️ How It Works (The Gist)
